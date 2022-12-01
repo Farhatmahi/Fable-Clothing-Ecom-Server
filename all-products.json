@@ -1,0 +1,115 @@
+[
+    {
+        "product_name" : "Jacket KLS Beige",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/bWt7jMq/Foto.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Jacket KLS Black",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/m6LnCrS/Foto-1.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Jacket KLS Graphite",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/pbJsL0x/Foto-2.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Jacket KLS Blue",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/vX1ZyPz/Foto-3.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Jacket KLS Yellow",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/7NHRsvs/Foto-4.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Jacket KLS Brown",
+        "product_type" : "Jacket",
+        "product_price" : "105",
+        "product_image" : "https://i.ibb.co/NNw9N29/Foto-5.png",
+        "product_description" : "Jacket made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Trouser KLS Blue",
+        "product_type" : "Trouser",
+        "product_price" : "110",
+        "product_image" : "https://i.ibb.co/PhPgdG1/Foto-6.png",
+        "product_description" : "Trouser made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Trouser KLS Black",
+        "product_type" : "Trouser",
+        "product_price" : "110",
+        "product_image" : "https://i.ibb.co/QN09QHL/Foto-8.png",
+        "product_description" : "Trouser made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Trouser KLS Brown",
+        "product_type" : "Trouser",
+        "product_price" : "110",
+        "product_image" : "https://i.ibb.co/GxkVrN1/Foto-7.png",
+        "product_description" : "Trouser made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Trouser KLS Graphite",
+        "product_type" : "Trouser",
+        "product_price" : "110",
+        "product_image" : "https://i.ibb.co/bWt7jMq/Foto.png",
+        "product_description" : "Trouser made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Shirt KLS White",
+        "product_type" : "Shirt",
+        "product_price" : "125",
+        "product_image" : "https://i.ibb.co/Chj2w13/Foto-11.png",
+        "product_description" : "Shirt made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Shorts KLS Black",
+        "product_type" : "Shirt",
+        "product_price" : "125",
+        "product_image" : "https://i.ibb.co/1zpdkT1/Foto-14.png",
+        "product_description" : "shorts made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Shorts KLS Gray",
+        "product_type" : "Shirt",
+        "product_price" : "125",
+        "product_image" : "https://i.ibb.co/89FkKM2/Foto-13.png",
+        "product_description" : "Shorts made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    },
+    {
+        "product_name" : "Shorts KLS White",
+        "product_type" : "Shirt",
+        "product_price" : "125",
+        "product_image" : "https://i.ibb.co/m8Hsgh6/Foto-12.png",
+        "product_description" : "Shorts made of a loose fit makes the product a universal element of the upper layer. Two patch pockets and one hidden pocket. Branded lining with FABLE pattern. Shoulder pads of medium rigidity for shaping.",
+        "product_size" : ["XS", "S", "M", "L", "XL"] 
+    }
+    
+]
