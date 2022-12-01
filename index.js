@@ -30,6 +30,14 @@ const run = async() => {
         res.send(products)
     })
 
+    //get products by category
+    app.get('/all-products/:type', async(req, res) => {
+        const type = req.params.type;
+        const query = {product_type : type}
+        const result = await allProductsCollection.find(query).toArray()
+        res.send(result)
+    })
+
 }
 run().catch(err => console.log(err))
 
