@@ -14,13 +14,14 @@ const port = process.env.PORT || 1000;
 
 
 //mongodb
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://fable:fable@cluster0.6ulnnbw.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
 //collections
 const allProductsCollection = client.db('fable').collection('allProducts')
+const userCollection = client.db('fable').collection('users')
 
 const run = async() => {
     //get all products
@@ -35,6 +36,29 @@ const run = async() => {
         const type = req.params.type;
         const query = {product_type : type}
         const result = await allProductsCollection.find(query).toArray()
+        res.send(result)
+    })
+
+    //get product by id
+    app.get('/product/:id', async(req, res) => {
+        console.log(req);
+        const id = req.params.id;
+        const query = { _id : ObjectId(id)}
+        console.log(query);
+        const result = await allProductsCollection.findOne(query)
+        res.send(result)
+    })
+
+    app.get('/users', async(req, res) => {
+        const query = {}
+        const users = await userCollection.find(query).toArray()
+        res.send(users)
+      })
+
+    //post : users
+    app.post('/users', async(req, res) => {
+        const user = req.body;
+        const result = await userCollection.insertOne(user)
         res.send(result)
     })
 
