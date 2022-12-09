@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const stripe = require("stripe")('sk_test_51M7FK2JH0OzhgIOypLPiR4IkzIxEiaEwUHbNstAppIq60w9A0QLO1ANtwnkYnWvJwQNXfShW3lGyGx2U1p9Uod5i00XPa6yZpe')
+const stripe = require("stripe")(
+  "sk_test_51M7FK2JH0OzhgIOypLPiR4IkzIxEiaEwUHbNstAppIq60w9A0QLO1ANtwnkYnWvJwQNXfShW3lGyGx2U1p9Uod5i00XPa6yZpe"
+);
 
 //middleware
 app.use(cors());
@@ -24,7 +26,9 @@ const client = new MongoClient(uri, {
 const allProductsCollection = client.db("fable").collection("allProducts");
 const userCollection = client.db("fable").collection("users");
 const cartCollection = client.db("fable").collection("cart");
-const purchasedCollection = client.db('fable').collection('purchased-collection')
+const purchasedCollection = client
+  .db("fable")
+  .collection("purchased-collection");
 const paymentCollection = client.db("fable").collection("payment");
 
 const run = async () => {
@@ -72,6 +76,12 @@ const run = async () => {
     res.send(result);
   });
 
+  app.get("/payment", async (req, res) => {
+    const query = {};
+    const result = await paymentCollection.find(query).toArray();
+    res.send(result);
+  });
+
   //post : users
   app.post("/users", async (req, res) => {
     const user = req.body;
@@ -113,31 +123,29 @@ const run = async () => {
     });
   });
 
-  app.post('/payment', async(req, res) => {
+  app.post("/payment", async (req, res) => {
     const payment = req.body;
-    const result = await paymentCollection.insertOne(payment)
+    const result = await paymentCollection.insertOne(payment);
     const id = payment.purchased_Id;
-    const query = {_id : ObjectId(id)}
+    const query = { _id: ObjectId(id) };
     const updatedDoc = {
-      $set : {
-        paid : true,
-        transactionId : payment.transactionId
-      }
-    }
-    const updateResult = await purchasedCollection.updateOne(query, updatedDoc)
+      $set: {
+        paid: true,
+        transactionId: payment.transactionId,
+      },
+    };
+    const updateResult = await purchasedCollection.updateOne(query, updatedDoc);
+    res.send(result);
+  });
+
+  app.delete("/cart/:id", async (req, res) => {
+    const id = req.params.id;
+    const filter = { _id: ObjectId(id) };
+    const result = await cartCollection.deleteOne(filter)
     res.send(result)
-  })
+  });
 
-  app.get('/payment', async(req, res) => {
-    const query = {}
-    const result = await paymentCollection.find(query).toArray()
-    res.send(result)
-  })
-
-
-
-
-
+  
 };
 run().catch((err) => console.log(err));
 
