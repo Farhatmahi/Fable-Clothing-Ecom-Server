@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const stripe = require("stripe")('sk_test_51M7FK2JH0OzhgIOypLPiR4IkzIxEiaEwUHbNstAppIq60w9A0QLO1ANtwnkYnWvJwQNXfShW3lGyGx2U1p9Uod5i00XPa6yZpe')
 
 //middleware
 app.use(cors());
@@ -23,6 +24,8 @@ const client = new MongoClient(uri, {
 const allProductsCollection = client.db("fable").collection("allProducts");
 const userCollection = client.db("fable").collection("users");
 const cartCollection = client.db("fable").collection("cart");
+const purchasedCollection = client.db('fable').collection('purchased-collection')
+const paymentCollection = client.db("fable").collection("payment");
 
 const run = async () => {
   //get all products
@@ -91,9 +94,50 @@ const run = async () => {
     }
     const result = await cartCollection.insertOne(cart);
     res.send(result);
-
-
   });
+
+  //payment
+  app.post("/create-payment-intent", async (req, res) => {
+    const order = req.body;
+    const price = order.price;
+    const amount = price * 100;
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      currency: "usd",
+      amount: amount,
+      payment_method_types: ["card"],
+    });
+
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  });
+
+  app.post('/payment', async(req, res) => {
+    const payment = req.body;
+    const result = await paymentCollection.insertOne(payment)
+    const id = payment.purchased_Id;
+    const query = {_id : ObjectId(id)}
+    const updatedDoc = {
+      $set : {
+        paid : true,
+        transactionId : payment.transactionId
+      }
+    }
+    const updateResult = await purchasedCollection.updateOne(query, updatedDoc)
+    res.send(result)
+  })
+
+  app.get('/payment', async(req, res) => {
+    const query = {}
+    const result = await paymentCollection.find(query).toArray()
+    res.send(result)
+  })
+
+
+
+
+
 };
 run().catch((err) => console.log(err));
 
