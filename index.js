@@ -26,6 +26,8 @@ const client = new MongoClient(uri, {
 const allProductsCollection = client.db("fable").collection("allProducts");
 const userCollection = client.db("fable").collection("users");
 const cartCollection = client.db("fable").collection("cart");
+const reviewCollection = client.db("fable").collection("reviews");
+
 const purchasedCollection = client
   .db("fable")
   .collection("purchased-collection");
@@ -82,6 +84,16 @@ const run = async () => {
     res.send(result);
   });
 
+  //get reviews
+  
+
+  app.get('/reviews', async(req, res) => {
+    const id = req.query.product;
+    const query = { product_id : id}
+    const result = await reviewCollection.find(query).toArray()
+    res.send(result)
+  })
+
   //post : users
   app.post("/users", async (req, res) => {
     const user = req.body;
@@ -137,6 +149,13 @@ const run = async () => {
     const updateResult = await purchasedCollection.updateOne(query, updatedDoc);
     res.send(result);
   });
+
+  //adding review
+  app.post('/reviews', async(req, res) => {
+    const review = req.body;
+    const result = await reviewCollection.insertOne(review)
+    res.send(result)
+  })
 
   app.delete("/cart/:id", async (req, res) => {
     const id = req.params.id;
